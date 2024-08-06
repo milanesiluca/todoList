@@ -38,7 +38,6 @@ function App() {
   return (
     <>
       <Outlet context={toDoContext}/>
-      
       <Footer />
     </>
   )

@@ -39,8 +39,8 @@ export function InsertTaksFormPage() : ReactElement {
         <form onSubmit={saveTask}>
             <span className="card-form-container">
                 <div className="txt-container">
-                    <input className="input-Layout" type="text" placeholder="Title" value={name} onChange={handleTitle}/>
-                    <input className="input-Layout" type="text" placeholder="Note" value={what} onChange={handleSubTitle}/>
+                    <input className="input-Layout" type="text" placeholder="Who" value={name} onChange={handleTitle}/>
+                    <input className="input-Layout" type="text" placeholder="What" value={what} onChange={handleSubTitle}/>
                 </div>
                 <div className="button-container">
                     <button className="save-btn" type="submit">SAVE</button>

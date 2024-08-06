@@ -1,0 +1,31 @@
+.card-form-container {
+    width: 300px; 
+    height: 105px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: goldenrod;    
+    margin-bottom: 1rem;
+}
+
+.txt-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-left: 5px;
+}
+
+.input-Layout {
+    border-radius: 5px;
+    border: 0;
+    padding: 5px;
+    margin-top: 6px;
+    height: 34px;
+}
+
+.save-btn{
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 95px;
+    height: 95px;
+}

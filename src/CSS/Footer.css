@@ -1,0 +1,26 @@
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    background-color: black;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: gold;
+}
+
+.footer-container p {
+    font-size: 1rem;
+}
+  
+.footer-container .links {
+    display: flex;
+    gap: 2rem;
+    color: gold;  
+}
+
+a {
+    font-weight: 500;
+    color: gold;
+    text-decoration: none;
+  }

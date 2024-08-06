@@ -24,7 +24,7 @@ export function InsertTaksFormPage() : ReactElement {
         e.preventDefault();
         const taskObj : ITaskData = {
             id: what,
-            name: what,
+            name: name,
             what: what,
             completed: false,
             classes: "card-container"

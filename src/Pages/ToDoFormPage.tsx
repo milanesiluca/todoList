@@ -1,16 +1,16 @@
 import { ChangeEventHandler, FormEventHandler, ReactElement, useState } from "react";
 import "../CSS/ToDoFormPage.css"
-import { ITaskData } from "../interfaces/interfaces";
+import { ITaskData, IToDoListContext } from "../interfaces/interfaces";
+import { useOutletContext } from "react-router-dom";
 
 
-interface IAddTaskProps {
-    insertTask: (newTask : ITaskData) => void;
-}
 
-export function InsertTaksFormPage({insertTask} : IAddTaskProps) : ReactElement {
+
+export function InsertTaksFormPage() : ReactElement {
 
     const [title, setTitle] = useState<string>("");
     const [subTitle, setSubTitle] = useState<string>("");
+    const { addNewTask } = useOutletContext<IToDoListContext>();
 
     const handleTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
         setTitle(e.target.value);
@@ -30,7 +30,7 @@ export function InsertTaksFormPage({insertTask} : IAddTaskProps) : ReactElement 
             classes: "card-container"
         }
 
-        insertTask(taskObj);
+        addNewTask(taskObj);
         setTitle("");
         setSubTitle("");
     }

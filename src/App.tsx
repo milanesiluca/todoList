@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { InsertTaksFormPage } from './Pages/ToDoFormPage'
 import './App.css'
-import { ITaskData } from './interfaces/interfaces';
-import { TaskListPage } from './Pages/TaskListPage';
+import { ITaskData, IToDoListContext } from './interfaces/interfaces';
 import { Footer } from './components/Footer';
+import { Outlet } from 'react-router-dom';
 
 function App() {
 
@@ -17,6 +16,7 @@ function App() {
     setTasks(tasks.filter((t) => t!= task));
   }
 
+  
   const onDoneClick = (task: ITaskData) => {
     console.log(task.title);
     console.log(task.completed);
@@ -26,11 +26,19 @@ function App() {
     tasks[tsIndex].classes = ("card-container done-bg");
     setTasks([...tasks]);
   }
+  
+  const toDoContext : IToDoListContext = {
+    tasks: tasks,
+    addNewTask,
+    onDeleteClick,
+    onDoneClick
+  };
 
+  
   return (
     <>
-      <InsertTaksFormPage insertTask={addNewTask}/>
-      <TaskListPage taskList={tasks} onDeleteClick={onDeleteClick} onDoneClick={onDoneClick}/> 
+      <Outlet context={toDoContext}/>
+      
       <Footer />
     </>
   )

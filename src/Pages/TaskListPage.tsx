@@ -1,20 +1,19 @@
 import  { ReactElement } from "react"
 import "../CSS/TaskListPage.css"
 import { ToDoCard } from "../components/ToDoCard"
-import { ITaskData} from "../interfaces/interfaces"
+import { ITaskData, IToDoListContext} from "../interfaces/interfaces"
+import { useOutletContext } from "react-router-dom"
 
-interface ITaskPros {
-    taskList : ITaskData[];
-    onDeleteClick: (task: ITaskData) => void;
-    onDoneClick: (task: ITaskData) => void;
-}
 
-export function TaskListPage({taskList, onDeleteClick, onDoneClick} : ITaskPros) : ReactElement {
+
+export function TaskListPage() : ReactElement {
+
+    const context = useOutletContext<IToDoListContext>();
 
     return(
         <span className="tasklist">
-            {taskList.map((task) => (
-                <ToDoCard key={task.title} task={task} onDeleteClick={onDeleteClick} onDoneClick={onDoneClick}/>
+            {context.tasks.map((task) => (
+                <ToDoCard key={task.title} task={task} onDeleteClick={context.onDeleteClick} onDoneClick={context.onDoneClick}/>
             ))}
         </span>
     );

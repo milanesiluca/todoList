@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import { InsertTaksForm } from './components/ToDoForm'
+import { InsertTaksFormPage } from './Pages/ToDoFormPage'
 import './App.css'
 import { ITaskData } from './interfaces/interfaces';
-import { TaskList } from './components/TaskList';
+import { TaskListPage } from './Pages/TaskListPage';
 import { Footer } from './components/Footer';
 
 function App() {
@@ -29,8 +29,8 @@ function App() {
 
   return (
     <>
-      <InsertTaksForm insertTask={addNewTask}/>
-      <TaskList taskList={tasks} onDeleteClick={onDeleteClick} onDoneClick={onDoneClick}/> 
+      <InsertTaksFormPage insertTask={addNewTask}/>
+      <TaskListPage taskList={tasks} onDeleteClick={onDeleteClick} onDoneClick={onDoneClick}/> 
       <Footer />
     </>
   )

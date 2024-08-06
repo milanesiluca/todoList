@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FormEventHandler, ReactElement, useState } from "react";
-import "../CSS/ToDoForm.css"
+import "../CSS/ToDoFormPage.css"
 import { ITaskData } from "../interfaces/interfaces";
 
 
@@ -7,7 +7,7 @@ interface IAddTaskProps {
     insertTask: (newTask : ITaskData) => void;
 }
 
-export function InsertTaksForm({insertTask} : IAddTaskProps) : ReactElement {
+export function InsertTaksFormPage({insertTask} : IAddTaskProps) : ReactElement {
 
     const [title, setTitle] = useState<string>("");
     const [subTitle, setSubTitle] = useState<string>("");

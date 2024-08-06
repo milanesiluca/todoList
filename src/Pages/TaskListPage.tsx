@@ -1,6 +1,6 @@
 import  { ReactElement } from "react"
-import "../CSS/TaskList.css"
-import { ToDoCard } from "./ToDoCard"
+import "../CSS/TaskListPage.css"
+import { ToDoCard } from "../components/ToDoCard"
 import { ITaskData} from "../interfaces/interfaces"
 
 interface ITaskPros {
@@ -9,7 +9,7 @@ interface ITaskPros {
     onDoneClick: (task: ITaskData) => void;
 }
 
-export function TaskList({taskList, onDeleteClick, onDoneClick} : ITaskPros) : ReactElement {
+export function TaskListPage({taskList, onDeleteClick, onDoneClick} : ITaskPros) : ReactElement {
 
     return(
         <span className="tasklist">

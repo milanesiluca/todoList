@@ -14,8 +14,8 @@ export function ToDoCard({task, onDeleteClick, onDoneClick}: ITaskProps) : React
     return(
         <span className={task.classes}>
             <div className="txt-container">
-                <p className="p-Layout">{task.title}</p>
-                <p className="p-Layout">{task.subtitle}</p>
+                <p className="p-Layout">{task.name}</p>
+                <p className="p-Layout">{task.what}</p>
             </div>
             <div className="button-container">
                 <button className="btn" onClick={() => onDoneClick(task)}>Done</button>

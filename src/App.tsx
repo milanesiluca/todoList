@@ -18,9 +18,7 @@ function App() {
 
   
   const onDoneClick = (task: ITaskData) => {
-    console.log(task.title);
-    console.log(task.completed);
-    const tsIndex = tasks.findIndex((obj) => obj.title == task.title)
+    const tsIndex = tasks.findIndex((obj) => obj.what == task.what)
     tasks[tsIndex].completed = true;
     console.log(tasks[tsIndex].completed);
     tasks[tsIndex].classes = ("card-container done-bg");

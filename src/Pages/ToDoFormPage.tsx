@@ -8,39 +8,39 @@ import { useOutletContext } from "react-router-dom";
 
 export function InsertTaksFormPage() : ReactElement {
 
-    const [title, setTitle] = useState<string>("");
-    const [subTitle, setSubTitle] = useState<string>("");
+    const [name, setName] = useState<string>("");
+    const [what, setWhat] = useState<string>("");
     const { addNewTask } = useOutletContext<IToDoListContext>();
 
     const handleTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
-        setTitle(e.target.value);
+        setName(e.target.value);
     }
     const handleSubTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
-        setSubTitle(e.target.value);
+        setWhat(e.target.value);
     }
 
 
     const saveTask: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         const taskObj : ITaskData = {
-            id: title,
-            title: title,
-            subtitle: subTitle,
+            id: what,
+            name: what,
+            what: what,
             completed: false,
             classes: "card-container"
         }
 
         addNewTask(taskObj);
-        setTitle("");
-        setSubTitle("");
+        setName("");
+        setWhat("");
     }
 
     return(
         <form onSubmit={saveTask}>
             <span className="card-form-container">
                 <div className="txt-container">
-                    <input className="input-Layout" type="text" placeholder="Title" value={title} onChange={handleTitle}/>
-                    <input className="input-Layout" type="text" placeholder="Note" value={subTitle} onChange={handleSubTitle}/>
+                    <input className="input-Layout" type="text" placeholder="Title" value={name} onChange={handleTitle}/>
+                    <input className="input-Layout" type="text" placeholder="Note" value={what} onChange={handleSubTitle}/>
                 </div>
                 <div className="button-container">
                     <button className="save-btn" type="submit">SAVE</button>

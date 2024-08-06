@@ -1,7 +1,7 @@
 export interface ITaskData {
     id: string;
-    title: string;
-    subtitle: String;
+    name: string;
+    what: String;
     completed: boolean;
     classes: string;
 }

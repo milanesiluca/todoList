@@ -1,7 +1,7 @@
 import  { ReactElement } from "react"
 import "../CSS/TaskListPage.css"
 import { ToDoCard } from "../components/ToDoCard"
-import { ITaskData, IToDoListContext} from "../interfaces/interfaces"
+import { IToDoListContext} from "../interfaces/interfaces"
 import { useOutletContext } from "react-router-dom"
 
 
@@ -13,7 +13,7 @@ export function TaskListPage() : ReactElement {
     return(
         <span className="tasklist">
             {context.tasks.map((task) => (
-                <ToDoCard key={task.title} task={task} onDeleteClick={context.onDeleteClick} onDoneClick={context.onDoneClick}/>
+                <ToDoCard key={task.name} task={task} onDeleteClick={context.onDeleteClick} onDoneClick={context.onDoneClick}/>
             ))}
         </span>
     );

@@ -10,7 +10,6 @@ export function Footer() : ReactElement {
             <Link to="/">Add Task</Link>
             <Link to="/task-list">Task List</Link>
             <Link to="/tasks">Tasks in List</Link>
-            
         </div>
     </footer>
     

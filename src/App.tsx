@@ -57,6 +57,19 @@ function App() {
       setTasks([...tasks]);
     }
   }
+
+  const sortByName = () => {
+    tasks.sort(function(a,b) {
+      var x = a.name;
+      var y = b.name;
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    })
+    setTasks([...tasks]);
+  }
+
+  const sortByDate = () => {
+
+  }
   
   const toDoContext : IToDoListContext = {
     tasks: tasks,
@@ -67,7 +80,9 @@ function App() {
     onDoneClick,
     onEditClick,
     moveTaskUp,
-    moveTaskDown
+    moveTaskDown,
+    sortByName,
+    sortByDate
   };
 
   

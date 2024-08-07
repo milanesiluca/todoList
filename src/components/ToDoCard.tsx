@@ -13,8 +13,6 @@ interface ITaskProps{
 
 export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTaskUp, moveTaskDown}: ITaskProps) : ReactElement {
 
-
-
     return(
         <section className="container-section">
             <span className={task.classes} >

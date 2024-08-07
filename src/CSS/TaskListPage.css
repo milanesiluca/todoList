@@ -1,0 +1,18 @@
+.tool-bar {
+    display: flex;
+    justify-content: center;
+    gap: 6rem;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: black;
+    padding: 2px;
+    color: gold;
+}
+
+.sort-btn{
+    background-color: transparent;
+    color: gold;
+    border: 0;
+    padding: 0.5rem;
+}

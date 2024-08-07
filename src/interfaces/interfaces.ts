@@ -17,4 +17,6 @@ export interface IToDoListContext {
     onEditClick: (task: ITaskData) => void;
     moveTaskUp:(task: ITaskData) => void;
     moveTaskDown:(task: ITaskData) => void;
+    sortByName: () => void;
+    sortByDate: () => void;
 }

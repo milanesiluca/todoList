@@ -42,6 +42,21 @@ function App() {
     return tasks[tsk];
   }
 
+  const moveTaskUp = (task: ITaskData) => {
+    const tsIndex = tasks.findIndex((obj) => obj.id == task.id)
+    if (tsIndex > 0) {
+      tasks.splice(tsIndex - 1, 0, tasks.splice(tsIndex, 1)[0]);
+      setTasks([...tasks]);
+    }
+  }
+
+  const moveTaskDown = (task: ITaskData) => {
+    const tsIndex = tasks.findIndex((obj) => obj.id == task.id)
+    if (tsIndex < tasks.length -1) {
+      tasks.splice(tsIndex + 1, 0, tasks.splice(tsIndex, 1)[0]);
+      setTasks([...tasks]);
+    }
+  }
   
   const toDoContext : IToDoListContext = {
     tasks: tasks,
@@ -51,6 +66,8 @@ function App() {
     onDeleteClick,
     onDoneClick,
     onEditClick,
+    moveTaskUp,
+    moveTaskDown
   };
 
   

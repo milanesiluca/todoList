@@ -15,4 +15,6 @@ export interface IToDoListContext {
     onDeleteClick: (task: ITaskData) => void;
     onDoneClick: (task: ITaskData) => void;
     onEditClick: (task: ITaskData) => void;
+    moveTaskUp:(task: ITaskData) => void;
+    moveTaskDown:(task: ITaskData) => void;
 }

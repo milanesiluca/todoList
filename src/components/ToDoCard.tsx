@@ -6,9 +6,11 @@ interface ITaskProps{
     task: ITaskData;
     onDeleteClick: (task: ITaskData) => void;
     onDoneClick: (task: ITaskData) => void; 
+    onEditClick: (task: ITaskData) => void;
 }
 
-export function ToDoCard({task, onDeleteClick, onDoneClick}: ITaskProps) : ReactElement {
+export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick}: ITaskProps) : ReactElement {
+
 
 
     return(
@@ -19,6 +21,7 @@ export function ToDoCard({task, onDeleteClick, onDoneClick}: ITaskProps) : React
             </div>
             <div className="button-container">
                 <button className="btn" onClick={() => onDoneClick(task)}>Done</button>
+                <button className="btn" onClick={() => onEditClick(task)}>Edit</button>
                 <button className="btn" onClick={() => onDeleteClick(task)}>Remove</button>
             </div>
         </span>   

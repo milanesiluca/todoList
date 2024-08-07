@@ -10,7 +10,7 @@ export function InsertTaksFormPage() : ReactElement {
 
     const [name, setName] = useState<string>("");
     const [what, setWhat] = useState<string>("");
-    const { addNewTask } = useOutletContext<IToDoListContext>();
+    const { addNewTask, tasks } = useOutletContext<IToDoListContext>();
 
     const handleTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
         setName(e.target.value);
@@ -23,7 +23,7 @@ export function InsertTaksFormPage() : ReactElement {
     const saveTask: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         const taskObj : ITaskData = {
-            id: what,
+            id: tasks.length + 1,
             name: name,
             what: what,
             completed: false,

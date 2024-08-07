@@ -1,5 +1,5 @@
 export interface ITaskData {
-    id: string;
+    id: number;
     name: string;
     what: String;
     completed: boolean;
@@ -12,4 +12,5 @@ export interface IToDoListContext {
     addNewTask: (newTask: ITaskData) => void;
     onDeleteClick: (task: ITaskData) => void;
     onDoneClick: (task: ITaskData) => void;
+    onEditClick: (task: ITaskData) => void;
 }

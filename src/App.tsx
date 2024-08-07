@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './CSS/App.css'
 import { ITaskData, IToDoListContext } from './interfaces/interfaces';
 import { Footer } from './components/Footer';
 import { useNavigate, Outlet } from 'react-router-dom';
@@ -7,6 +7,7 @@ import { useNavigate, Outlet } from 'react-router-dom';
 function App() {
 
   const [tasks, setTasks] = useState<ITaskData[]>([]);
+  const [taskToEdit, setTaskToEdit] = useState<ITaskData>();
   const navigate = useNavigate();
 
   const addNewTask = (newTask : ITaskData) => {
@@ -30,13 +31,19 @@ function App() {
   }
 
   const onEditClick = (task: ITaskData) => {
-    const tsIndex = tasks.findIndex((obj) => obj.id == task.id);
-    const objEdited = tasks[tsIndex];
-    console.log("edit ", objEdited.what);
+    setTaskToEdit(task);
+    navigate("/");
+  }
+
+  const resetTaskToEdit = () => {
+    setTaskToEdit(undefined);
+    console.log("id:", taskToEdit?.id);
   }
   
   const toDoContext : IToDoListContext = {
     tasks: tasks,
+    taskToEdit,
+    resetTaskToEdit,
     addNewTask,
     onDeleteClick,
     onDoneClick,

@@ -1,3 +1,9 @@
+.form-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
 .card-form-container {
     width: 300px; 
     height: 105px;

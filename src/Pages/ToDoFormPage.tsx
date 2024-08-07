@@ -1,16 +1,18 @@
 import { ChangeEventHandler, FormEventHandler, ReactElement, useState } from "react";
 import "../CSS/ToDoFormPage.css"
 import { ITaskData, IToDoListContext } from "../interfaces/interfaces";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 
 
 
 
 export function InsertTaksFormPage() : ReactElement {
 
-    const [name, setName] = useState<string>("");
-    const [what, setWhat] = useState<string>("");
-    const { addNewTask, tasks } = useOutletContext<IToDoListContext>();
+    const { addNewTask, tasks, taskToEdit } = useOutletContext<IToDoListContext>();
+
+    const [name, setName] = useState<string>(taskToEdit ? taskToEdit.name : "");
+    const [what, setWhat] = useState<string>(taskToEdit ? taskToEdit.what : "");
+    const navigate = useNavigate();
 
     const handleTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
         setName(e.target.value);
@@ -19,24 +21,29 @@ export function InsertTaksFormPage() : ReactElement {
         setWhat(e.target.value);
     }
 
-
     const saveTask: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
-        const taskObj : ITaskData = {
-            id: tasks.length + 1,
-            name: name,
-            what: what,
-            completed: false,
-            classes: "card-container"
+        if (taskToEdit !== undefined ){
+            taskToEdit.name = name;
+            taskToEdit.what = what;
+            navigate("task-list");
+        } else {
+            const taskObj : ITaskData = {
+                id: tasks.length + 1,
+                name: name,
+                what: what,
+                completed: false,
+                classes: "card-container"
+            }
+    
+            addNewTask(taskObj);
+            setName("");
+            setWhat("");
         }
-
-        addNewTask(taskObj);
-        setName("");
-        setWhat("");
     }
 
     return(
-        <form onSubmit={saveTask}>
+        <form className="form-container" onSubmit={saveTask}>
             <span className="card-form-container">
                 <div className="txt-container">
                     <input className="input-Layout" type="text" placeholder="Who" value={name} onChange={handleTitle}/>
@@ -46,7 +53,7 @@ export function InsertTaksFormPage() : ReactElement {
                     <button className="save-btn" type="submit">SAVE</button>
                 </div>
             </span>   
-        </form>  
+        </form>   
     );
 }
 

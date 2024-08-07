@@ -10,8 +10,7 @@ export function TaskListPage() : ReactElement {
 
     const context = useOutletContext<IToDoListContext>();
 
-
-    return(
+    return( 
         <span className="tasklist">
             {context.tasks.map((task) => (
                 <ToDoCard key={task.name} task={task} onDeleteClick={context.onDeleteClick} onDoneClick={context.onDoneClick} onEditClick={context.onEditClick}/>

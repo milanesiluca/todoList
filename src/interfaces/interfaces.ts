@@ -9,8 +9,8 @@ export interface ITaskData {
 
 export interface IToDoListContext {
     tasks : ITaskData[];
-    taskToEdit?: ITaskData;
-    resetTaskToEdit: (newTask: ITaskData) => void;
+    idToEdit : number;
+    findSpecificTask: (id: number) => ITaskData;
     addNewTask: (newTask: ITaskData) => void;
     onDeleteClick: (task: ITaskData) => void;
     onDoneClick: (task: ITaskData) => void;

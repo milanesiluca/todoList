@@ -8,10 +8,12 @@ import { useOutletContext, useNavigate } from "react-router-dom";
 
 export function InsertTaksFormPage() : ReactElement {
 
-    const { addNewTask, tasks, taskToEdit } = useOutletContext<IToDoListContext>();
+    const { addNewTask, tasks, idToEdit, findSpecificTask } = useOutletContext<IToDoListContext>();
+  
+    const taskEditDetails = findSpecificTask(idToEdit);
 
-    const [name, setName] = useState<string>(taskToEdit ? taskToEdit.name : "");
-    const [what, setWhat] = useState<string>(taskToEdit ? taskToEdit.what : "");
+    const [name, setName] = useState<string>(taskEditDetails ? taskEditDetails.name : "");
+    const [what, setWhat] = useState<string>(taskEditDetails ? taskEditDetails.what : "");
     const navigate = useNavigate();
 
     const handleTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -21,25 +23,38 @@ export function InsertTaksFormPage() : ReactElement {
         setWhat(e.target.value);
     }
 
+    /*
+    const setTodos(tasks.map( todo => { 
+        if ( todo.id !== idToEdit ) return todo;
+     
+        return { ...todo, 
+                     name: "new name", 
+                     what: "new what" 
+                    }
+    } ) )
+*/
     const saveTask: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
-        if (taskToEdit !== undefined ){
-            taskToEdit.name = name;
-            taskToEdit.what = what;
-            navigate("task-list");
+        var id = 0;
+        if (idToEdit !== -1 ){
+            id = idToEdit;
+            const tsIndex = tasks.findIndex((obj) => obj.id == id);
+            tasks.splice(tsIndex, 1); 
         } else {
-            const taskObj : ITaskData = {
-                id: tasks.length + 1,
-                name: name,
-                what: what,
-                completed: false,
-                classes: "card-container"
-            }
-    
-            addNewTask(taskObj);
-            setName("");
-            setWhat("");
+            id = tasks.length + 1;
         }
+        const taskObj : ITaskData = {
+            id: id,
+            name: name,
+            what: what,
+            completed: false,
+            classes: "card-container"
+        }
+
+        addNewTask(taskObj);
+        setName("");
+        setWhat("");
+        navigate("task-list");
     }
 
     return(

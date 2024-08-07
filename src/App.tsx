@@ -7,11 +7,12 @@ import { useNavigate, Outlet } from 'react-router-dom';
 function App() {
 
   const [tasks, setTasks] = useState<ITaskData[]>([]);
-  const [taskToEdit, setTaskToEdit] = useState<ITaskData>();
+  const [taskToEdit, setTaskToEdit] = useState<number>(-1);
   const navigate = useNavigate();
 
   const addNewTask = (newTask : ITaskData) => {
     setTasks([newTask, ...tasks]);
+    setTaskToEdit(-1);
   }
 
   const onDeleteClick = (task: ITaskData) => {
@@ -31,19 +32,21 @@ function App() {
   }
 
   const onEditClick = (task: ITaskData) => {
-    setTaskToEdit(task);
+    setTaskToEdit(task.id);
     navigate("/");
   }
 
-  const resetTaskToEdit = () => {
-    setTaskToEdit(undefined);
-    console.log("id:", taskToEdit?.id);
+
+  const findSpecificTask = (id : number) : ITaskData => {
+    const tsk=  tasks.findIndex((obj) => obj.id == id);
+    return tasks[tsk];
   }
+
   
   const toDoContext : IToDoListContext = {
     tasks: tasks,
-    taskToEdit,
-    resetTaskToEdit,
+    idToEdit : taskToEdit,
+    findSpecificTask,
     addNewTask,
     onDeleteClick,
     onDoneClick,

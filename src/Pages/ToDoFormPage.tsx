@@ -23,16 +23,6 @@ export function InsertTaksFormPage() : ReactElement {
         setWhat(e.target.value);
     }
 
-    /*
-    const setTodos(tasks.map( todo => { 
-        if ( todo.id !== idToEdit ) return todo;
-     
-        return { ...todo, 
-                     name: "new name", 
-                     what: "new what" 
-                    }
-    } ) )
-*/
     const saveTask: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         var id = 0;

@@ -11,7 +11,7 @@ interface ITaskProps{
     moveTaskDown: (task: ITaskData) =>void;
 }
 
-export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTaskUp, moveTaskDown}: ITaskProps) : ReactElement {
+export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTaskUp, moveTaskDown }: ITaskProps) : ReactElement {
 
     return(
         <section className="container-section">
@@ -21,7 +21,7 @@ export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTas
                     <p className="p-Layout">{task.what}</p>
                 </div>
                 <div className="button-container">
-                    <button className="btn" onClick={() => onDoneClick(task)}>Done</button>
+                    <button className="btn" disabled={task.completed} onClick={() => onDoneClick(task)}>Done</button>
                     <button className="btn" onClick={() => onEditClick(task)}>Edit</button>
                     <button className="btn" onClick={() => onDeleteClick(task)}>Remove</button>
                 </div>

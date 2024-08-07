@@ -26,7 +26,6 @@ function App() {
   const onDoneClick = (task: ITaskData) => {
     const tsIndex = tasks.findIndex((obj) => obj.id == task.id)
     tasks[tsIndex].completed = true;
-    console.log(tasks[tsIndex].completed);
     tasks[tsIndex].classes = ("card-container done-bg");
     setTasks([...tasks]);
   }
@@ -75,7 +74,8 @@ function App() {
     })
     setTasks([...tasks]);
   }
-  
+
+
   const toDoContext : IToDoListContext = {
     tasks: tasks,
     idToEdit : taskToEdit,
@@ -87,7 +87,7 @@ function App() {
     moveTaskUp,
     moveTaskDown,
     sortByName,
-    sortByDate
+    sortByDate,
   };
 
   

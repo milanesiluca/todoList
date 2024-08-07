@@ -60,8 +60,8 @@ function App() {
 
   const sortByName = () => {
     tasks.sort(function(a,b) {
-      var x = a.name;
-      var y = b.name;
+      var x = a.name.toLocaleLowerCase();
+      var y = b.name.toLocaleLowerCase();
       return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     })
     setTasks([...tasks]);

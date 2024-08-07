@@ -48,7 +48,8 @@ export function InsertTaksFormPage() : ReactElement {
             name: name,
             what: what,
             completed: false,
-            classes: "card-container"
+            classes: "card-container",
+            created: Date.now()
         }
 
         addNewTask(taskObj);

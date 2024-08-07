@@ -68,7 +68,12 @@ function App() {
   }
 
   const sortByDate = () => {
-
+    tasks.sort(function(a,b) {
+      var x = a.created;
+      var y = b.created;
+      return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    })
+    setTasks([...tasks]);
   }
   
   const toDoContext : IToDoListContext = {

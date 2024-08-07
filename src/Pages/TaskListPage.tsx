@@ -11,7 +11,7 @@ export function TaskListPage(): ReactElement {
     <section>
         <span className="tool-bar">
             <button className="sort-btn" onClick={context.sortByName}>sort by name</button>
-            <button className="sort-btn">sort by date</button>
+            <button className="sort-btn" onClick={context.sortByDate}>sort by date</button>
         </span>
         <span className="tasklist">
         {context.tasks.map((task) => (

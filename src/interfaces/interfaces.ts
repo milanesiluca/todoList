@@ -4,6 +4,7 @@ export interface ITaskData {
     what: string;
     completed: boolean;
     classes: string;
+    created: number;
 }
 
 

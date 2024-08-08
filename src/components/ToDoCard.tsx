@@ -21,6 +21,7 @@ export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTas
                 <div className="txt-container">
                     <p className="p-Layout">{task.name}</p>
                     <p className="p-Layout">{task.what}</p>
+                    <p className="p-Layout">{task.priorityName}</p>
                 </div>
                 <div className="button-container">
                     <button className="btn" disabled={task.completed} onClick={() => onDoneClick(task)}>Done</button>

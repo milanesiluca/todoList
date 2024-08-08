@@ -8,6 +8,7 @@ export interface ITaskData {
     isFirst?: boolean;
     isLast?: boolean;
     priority: string;
+    priorityName: string;
 }
 
 

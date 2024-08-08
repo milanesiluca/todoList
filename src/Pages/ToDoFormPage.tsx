@@ -14,7 +14,8 @@ export function InsertTaksFormPage() : ReactElement {
 
     const [name, setName] = useState<string>(taskEditDetails ? taskEditDetails.name : "");
     const [what, setWhat] = useState<string>(taskEditDetails ? taskEditDetails.what : "");
-    const [priority, setPriority] = useState<string>("");
+    const [priority, setPriority] = useState<string>("1");
+    const [priorityName, setPriorityName] = useState<string>("Low");
     const navigate = useNavigate();
 
     const handleTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -27,6 +28,18 @@ export function InsertTaksFormPage() : ReactElement {
     const handlePriority: ChangeEventHandler<HTMLSelectElement> = (e) => {
         e.preventDefault();
         setPriority(e.target.value);
+        switch (e.target.value){
+            case "1":
+                setPriorityName("Priority - Low");
+                break;
+            case "2":
+                setPriorityName("Priority - Medium");
+                break;
+             case "3":
+                setPriorityName("Priority - High");
+                break;
+        }
+        
     }
 
     const saveTask: FormEventHandler<HTMLFormElement> = (e) => {
@@ -48,7 +61,8 @@ export function InsertTaksFormPage() : ReactElement {
             created: Date.now(),
             isFirst: undefined,
             isLast: undefined,
-            priority : priority
+            priority : priority,
+            priorityName: priorityName
         }
 
         addNewTask(taskObj);

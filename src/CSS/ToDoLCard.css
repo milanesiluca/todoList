@@ -33,6 +33,10 @@
 .p-Layout {
     font-size: large;
     text-align: left;
+    margin-top: 7px;
+    margin-bottom: 3px;
+    padding-bottom: 5px;
+    padding-left: 7px;
 }
 
 .btn{

@@ -30,13 +30,13 @@ export function InsertTaksFormPage() : ReactElement {
         setPriority(e.target.value);
         switch (e.target.value){
             case "1":
-                setPriorityName("Priority - Low");
+                setPriorityName("Low");
                 break;
             case "2":
-                setPriorityName("Priority - Medium");
+                setPriorityName("Medium");
                 break;
              case "3":
-                setPriorityName("Priority - High");
+                setPriorityName("High");
                 break;
         }
         

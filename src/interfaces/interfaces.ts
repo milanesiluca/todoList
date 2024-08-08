@@ -24,4 +24,5 @@ export interface IToDoListContext {
     moveTaskDown:(task: ITaskData) => void;
     sortByName: () => void;
     sortByDate: () => void;
+    sortByPriority: () => void;
 }

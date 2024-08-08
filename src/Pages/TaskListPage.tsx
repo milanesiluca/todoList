@@ -23,6 +23,8 @@ export function TaskListPage(): ReactElement {
             onEditClick={context.onEditClick}
             moveTaskUp={context.moveTaskUp}
             moveTaskDown={context.moveTaskDown}
+            isFirst = {undefined}
+            isLast = {undefined}
             />
         ))}
         </span>

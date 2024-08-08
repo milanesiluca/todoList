@@ -8,12 +8,42 @@ function App() {
 
   const [tasks, setTasks] = useState<ITaskData[]>([]);
   const [taskToEdit, setTaskToEdit] = useState<number>(-1);
+  const [todos, setTodos] = useState<ITaskData[]>([])
+
   const navigate = useNavigate();
 
   const addNewTask = (newTask : ITaskData) => {
     setTasks([newTask, ...tasks]);
     setTaskToEdit(-1);
+    updateFirstInList();
+    updateLastInList();
   }
+
+  const updateFirstInList = () => {
+    setTodos(prevState => {
+      const data = [...prevState];
+      
+      data[0] = {
+          ...data[0],
+          isFirst: true,
+      };
+      return data;
+    });
+    
+    
+  }
+  const updateLastInList = () => {
+    setTodos(prevState => {
+      const data = [...prevState];
+      data[tasks.length - 1] = {
+          ...data[tasks.length - 1],
+          isLast: true,
+      };
+      return data;
+    });
+  }
+
+
 
   const onDeleteClick = (task: ITaskData) => {
     if (tasks.length === 1){

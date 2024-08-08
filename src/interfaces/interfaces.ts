@@ -5,6 +5,9 @@ export interface ITaskData {
     completed: boolean;
     classes: string;
     created: number;
+    isFirst?: boolean;
+    isLast?: boolean;
+    priority: string;
 }
 
 

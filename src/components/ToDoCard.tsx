@@ -9,9 +9,11 @@ interface ITaskProps{
     onEditClick: (task: ITaskData) => void;
     moveTaskUp: (task: ITaskData) =>void;
     moveTaskDown: (task: ITaskData) =>void;
+    isFirst?: boolean;
+    isLast?: boolean;
 }
 
-export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTaskUp, moveTaskDown }: ITaskProps) : ReactElement {
+export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTaskUp, moveTaskDown, isFirst, isLast }: ITaskProps) : ReactElement {
 
     return(
         <section className="container-section">
@@ -27,12 +29,12 @@ export function ToDoCard({task, onDeleteClick, onDoneClick, onEditClick, moveTas
                 </div>
             </span>   
             <div className="button-dir">
-                <button className="dir-btn" onClick={() => moveTaskUp(task)}>
+                <button className="dir-btn" onClick={() => moveTaskUp(task)} hidden={isFirst ? true : undefined}>
                     <span className="material-symbols-outlined">
                         arrow_drop_up
                     </span>
                 </button>
-                <button className="dir-btn" onClick={() => moveTaskDown(task)}>
+                <button className="dir-btn" onClick={() => moveTaskDown(task)} hidden={isLast ? true : undefined}>
                     <span className="material-symbols-outlined">
                         arrow_drop_down
                     </span>

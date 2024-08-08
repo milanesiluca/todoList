@@ -14,9 +14,9 @@ export function InsertTaksFormPage() : ReactElement {
 
     const [name, setName] = useState<string>(taskEditDetails ? taskEditDetails.name : "");
     const [what, setWhat] = useState<string>(taskEditDetails ? taskEditDetails.what : "");
-    const [classList, setClassList] = useState<string>("card-container");
-    const [priority, setPriority] = useState<string>("1");
-    const [priorityName, setPriorityName] = useState<string>("Low");
+    const [classList, setClassList] = useState<string>(taskEditDetails ? taskEditDetails.classes : "card-container");
+    const [priority, setPriority] = useState<string>(taskEditDetails ? taskEditDetails.priority : "3");
+    const [priorityName, setPriorityName] = useState<string>(taskEditDetails ? taskEditDetails.priorityName : "Priority - Low");
     const navigate = useNavigate();
 
     const handleTitle : ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -72,6 +72,8 @@ export function InsertTaksFormPage() : ReactElement {
         addNewTask(taskObj);
         setName("");
         setWhat("");
+        setPriority("3");
+        setPriorityName("Priority - Low");
         navigate("task-list");
     }
 

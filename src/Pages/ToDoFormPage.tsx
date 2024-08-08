@@ -14,6 +14,7 @@ export function InsertTaksFormPage() : ReactElement {
 
     const [name, setName] = useState<string>(taskEditDetails ? taskEditDetails.name : "");
     const [what, setWhat] = useState<string>(taskEditDetails ? taskEditDetails.what : "");
+    const [classList, setClassList] = useState<string>("card-container");
     const [priority, setPriority] = useState<string>("1");
     const [priorityName, setPriorityName] = useState<string>("Low");
     const navigate = useNavigate();
@@ -31,12 +32,15 @@ export function InsertTaksFormPage() : ReactElement {
         switch (e.target.value){
             case "1":
                 setPriorityName("Low");
+                setClassList("card-container low-pr");
                 break;
             case "2":
                 setPriorityName("Medium");
+                setClassList("card-container med-pr");
                 break;
              case "3":
                 setPriorityName("High");
+                setClassList("card-container high-pr");
                 break;
         }
         
@@ -57,7 +61,7 @@ export function InsertTaksFormPage() : ReactElement {
             name: name,
             what: what,
             completed: false,
-            classes: "card-container",
+            classes: classList,
             created: Date.now(),
             isFirst: undefined,
             isLast: undefined,
@@ -75,7 +79,7 @@ export function InsertTaksFormPage() : ReactElement {
 
     return(
         <form className="form-container" onSubmit={saveTask}>
-            <span className="card-form-container">
+            <span className={classList}>
                 <div className="txt-container">
                     <input className="input-Layout" type="text" placeholder="Who" value={name} onChange={handleTitle}/>
                     <input className="input-Layout" type="text" placeholder="What" value={what} onChange={handleSubTitle}/>

@@ -25,6 +25,18 @@
     background-color: green;    
 }
 
+.low-pr {
+    background-color: blue;    
+}
+
+.med-pr {
+    background-color: goldenrod;    
+}
+
+.high-pr {
+    background-color: rgb(218, 32, 38);    
+}
+
 .button-container{
     display: flex;
     flex-direction: column;

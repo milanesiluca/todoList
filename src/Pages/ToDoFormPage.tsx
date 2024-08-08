@@ -30,7 +30,7 @@ export function InsertTaksFormPage() : ReactElement {
         e.preventDefault();
         setPriority(e.target.value);
         switch (e.target.value){
-            case "1":
+            case "3":
                 setPriorityName("Low");
                 setClassList("card-container low-pr");
                 break;
@@ -38,7 +38,7 @@ export function InsertTaksFormPage() : ReactElement {
                 setPriorityName("Medium");
                 setClassList("card-container med-pr");
                 break;
-             case "3":
+             case "1":
                 setPriorityName("High");
                 setClassList("card-container high-pr");
                 break;
@@ -84,9 +84,9 @@ export function InsertTaksFormPage() : ReactElement {
                     <input className="input-Layout" type="text" placeholder="Who" value={name} onChange={handleTitle}/>
                     <input className="input-Layout" type="text" placeholder="What" value={what} onChange={handleSubTitle}/>
                     <select className="select-layout" value={priority} onChange={handlePriority}>
-                        <option value="1">Priority - Low</option>
+                        <option value="3">Priority - Low</option>
                         <option value="2">Priority - Medium</option>
-                        <option value="3">Priority - High</option>
+                        <option value="1">Priority - High</option>
                     </select>
                 </div>
                 <div className="button-container">
